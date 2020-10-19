@@ -1,5 +1,11 @@
 # LearningAngular
 
+This project is intended to be used as a teaching tool for students learning Angular for the first time. Students are expected to have a tech background and a basic understanding of web apps and TypeScript.
+
+Lecture slides and teaching materials are not provided in this repository, but code is heavily commented and branches of this repo are labeled in course order.
+
+# Standard Angular README
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
 ## Development server
