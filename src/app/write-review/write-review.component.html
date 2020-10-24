@@ -1,17 +1,20 @@
 <div>
   <h1>Write Movie Review</h1>
-  <form>
+  <form formGroup="reviewForm">
     <div>
       <label>Title</label>
-      <input type="text">
+      <input formControlName="title" type="text">
     </div>
     <div>
       <label>Rating</label>
-      <input type="text">
+      <input formControlName="rating" type="text">
     </div>
     <div>
       <label>Comments</label>
-      <input type="text">
+      <input formControlName="comments" type="text">
+    </div>
+    <div>
+      <button>Submit Review</button>
     </div>
   </form>
 </div>

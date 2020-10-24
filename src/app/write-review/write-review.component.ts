@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-write-review',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WriteReviewComponent implements OnInit {
 
-  constructor() { }
+  reviewForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.reviewForm = this.fb.group({
+      title: ['', Validators.required],
+      rating: ['', Validators.required],
+      comments: ['', Validators.required]
+    });
+  }
 
   ngOnInit(): void {
   }
