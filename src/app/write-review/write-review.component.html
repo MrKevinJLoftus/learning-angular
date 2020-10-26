@@ -2,23 +2,29 @@
   <h1>{{ pageTitle }}</h1>
   <form [formGroup]="reviewForm">
     <div>
-      <label>Title</label>
-      <input formControlName="title" type="text">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" type="text">
+      </mat-form-field>
     </div>
     <div>
-      <label>Rating</label>
-      <input formControlName="rating" type="text">
+      <mat-form-field>
+        <mat-label>Rating</mat-label>
+        <input matInput formControlName="rating" type="text">
+      </mat-form-field>
     </div>
     <div>
-      <label>Comments</label>
-      <input formControlName="comments" type="text">
+      <mat-form-field>
+        <mat-label>Comments</mat-label>
+        <input matInput formControlName="comments" type="text">
+      </mat-form-field>
     </div>
     <div>
-      <button>Submit Review</button>
+      <button mat-button>Submit Review</button>
     </div>
   </form>
   <br/>
   <div>
-    <button (click)="onLogButtonClick()">Log the Form Value</button>
+    <button mat-button (click)="onLogButtonClick()">Log the Form Value</button>
   </div>
 </div>
