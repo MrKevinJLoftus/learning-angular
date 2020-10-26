@@ -1,6 +1,6 @@
 <div>
-  <h1>Write Movie Review</h1>
-  <form formGroup="reviewForm">
+  <h1>{{ pageTitle }}</h1>
+  <form [formGroup]="reviewForm">
     <div>
       <label>Title</label>
       <input formControlName="title" type="text">
@@ -17,4 +17,8 @@
       <button>Submit Review</button>
     </div>
   </form>
+  <br/>
+  <div>
+    <button (click)="onLogButtonClick()">Log the Form Value</button>
+  </div>
 </div>
