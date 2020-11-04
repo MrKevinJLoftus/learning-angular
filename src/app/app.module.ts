@@ -9,11 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { WriteReviewFormComponent } from './write-review/write-review-form/write-review-form.component';
+import { PreviewReviewComponent } from './write-review/preview-review/preview-review.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WriteReviewComponent
+    WriteReviewComponent,
+    WriteReviewFormComponent,
+    PreviewReviewComponent
   ],
   imports: [
     BrowserModule,

@@ -7,44 +7,22 @@ import { Subscription } from 'rxjs';
   templateUrl: './write-review.component.html',
   styleUrls: ['./write-review.component.scss']
 })
-export class WriteReviewComponent implements OnInit, OnDestroy {
+export class WriteReviewComponent implements OnInit {
 
   pageTitle = 'Write a Review';
-  reviewForm!: FormGroup;
   $subscription: Subscription = new Subscription();
 
-  constructor(private fb: FormBuilder) {
-    this.reviewForm = this.fb.group({
-      title: ['', Validators.required],
-      rating: ['', Validators.required],
-      comments: ['', Validators.required]
-    });
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-    this.subscribeToReviewFormChanges();
-  }
-
-  ngOnDestroy(): void {
-    this.$subscription.unsubscribe();
-  }
+  ngOnInit(): void { }
 
   /**
    * Handle logging button click.
    */
   onLogButtonClick() {
-    console.log(this.reviewForm.value);
+    // console.log(this.reviewForm.value);
   }
 
-  /**
-   * Subscribe to reviewForm value changes.
-   */
-  subscribeToReviewFormChanges() {
-    this.$subscription.add(this.reviewForm.valueChanges.subscribe(
-      (formValues) => {
-        console.log(formValues);
-      }
-    ));
-  }
+
 
 }
