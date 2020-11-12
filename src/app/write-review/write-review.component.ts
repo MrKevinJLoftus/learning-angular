@@ -9,7 +9,7 @@ import { Review } from '../review.model';
   styleUrls: ['./write-review.component.scss']
 })
 export class WriteReviewComponent implements OnInit {
-  review: Review;
+  reviewData: Review;
   pageTitle = 'Write a Review';
   $subscription: Subscription = new Subscription();
 
@@ -17,16 +17,11 @@ export class WriteReviewComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onLogButtonClick() {
-
-  }
-
   /**
    * Handle a dataUpdate event from the child form component.
    */
   handleReviewFormUpdate(updatedReview: Review) {
-    this.review = updatedReview;
-    console.log(this.review);
+    this.reviewData = updatedReview;
   }
 
 }

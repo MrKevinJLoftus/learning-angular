@@ -21,7 +21,7 @@ export class WriteReviewFormComponent implements OnInit, OnDestroy {
   initForm() {
     this.reviewForm = this.fb.group({
       title: ['', Validators.required],
-      rating: ['', Validators.required],
+      rating: ['', [Validators.required, Validators.pattern(/\d+/)]],
       comments: ['', Validators.required]
     });
   }
