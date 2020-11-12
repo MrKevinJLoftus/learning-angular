@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { Review } from '../review.model';
 
 @Component({
   selector: 'app-write-review',
@@ -8,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./write-review.component.scss']
 })
 export class WriteReviewComponent implements OnInit {
-
+  review: Review;
   pageTitle = 'Write a Review';
   $subscription: Subscription = new Subscription();
 
@@ -16,13 +17,16 @@ export class WriteReviewComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  /**
-   * Handle logging button click.
-   */
   onLogButtonClick() {
-    // console.log(this.reviewForm.value);
+
   }
 
-
+  /**
+   * Handle a dataUpdate event from the child form component.
+   */
+  handleReviewFormUpdate(updatedReview: Review) {
+    this.review = updatedReview;
+    console.log(this.review);
+  }
 
 }

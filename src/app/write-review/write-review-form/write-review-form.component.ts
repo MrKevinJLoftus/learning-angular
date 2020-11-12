@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { Review } from 'src/app/review.model';
 
 @Component({
   selector: 'app-write-review-form',
@@ -8,10 +9,14 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./write-review-form.component.scss']
 })
 export class WriteReviewFormComponent implements OnInit, OnDestroy {
+  @Output() dataUpdate = new EventEmitter<Review>();
   reviewForm!: FormGroup;
   $subscription: Subscription = new Subscription();
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+    this.initForm();
+    this.subscribeToReviewFormChanges();
+  }
 
   initForm() {
     this.reviewForm = this.fb.group({
@@ -33,10 +38,9 @@ export class WriteReviewFormComponent implements OnInit, OnDestroy {
    */
   subscribeToReviewFormChanges() {
     this.$subscription.add(this.reviewForm.valueChanges.subscribe(
-      (formValues) => {
-        console.log(formValues);
+      (formValues: Review) => {
+        this.dataUpdate.emit(formValues);
       }
     ));
   }
-
 }
