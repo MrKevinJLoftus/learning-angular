@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Review } from 'src/app/review.model';
+import { Review } from 'src/app/shared/models/review.model';
 
 @Component({
   selector: 'app-preview-review',

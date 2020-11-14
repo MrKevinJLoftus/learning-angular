@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { Review } from 'src/app/review.model';
+import { Review } from 'src/app/shared/models/review.model';
 
 @Component({
   selector: 'app-write-review-form',
