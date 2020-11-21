@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 ​
-const reviewRoutes = require('./review/review.routes');
+const reviewRoutesV1 = require('./v1/review/review/review.routes');
+const reviewRoutesV2 = require('./v2/review/review/review.routes');
+const userRoutesV2 = require('./v2/user/user.routes');
 ​
 const app = express();
 ​
@@ -17,7 +19,9 @@ app.use((req, res, next) => {
     next();
 });
 ​
-app.use("/api/review", reviewRoutes);
+app.use("/api/v1/review", reviewRoutesV1);
+app.use("/api/v2/review", reviewRoutesV2);
+app.use("/api/v2/user", userRoutesV2);
 ​
 // Custom error handler
 app.use(function(err, req, res, next) {
