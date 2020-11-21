@@ -11,17 +11,28 @@ import { Review } from 'src/app/shared/models/review.model';
 export class WriteReviewComponent implements OnInit {
   reviewData: Review;
   pageTitle = 'Write a Review';
-  $subscription: Subscription = new Subscription();
+  reviewForm!: FormGroup;
 
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm() {
+    this.reviewForm = this.fb.group({
+      title: ['', Validators.required],
+      rating: ['', [Validators.required, Validators.pattern(/\d+/)]],
+      comments: ['', Validators.required]
+    });
+  }
 
   /**
-   * Handle a dataUpdate event from the child form component.
+   * Handle updates to the rating from child component.
+   * @param newRating - numerical rating coming as OutPut
    */
-  handleReviewFormUpdate(updatedReview: Review) {
-    this.reviewData = updatedReview;
+  handleRatingChange(newRating: number) {
+    this.reviewForm.controls.rating.setValue(newRating);
   }
 
 }

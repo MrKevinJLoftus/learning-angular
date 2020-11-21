@@ -3,7 +3,28 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.app-toolbar {
+  height: 5vh;
+}
+
+.main-content {
+  height: 95vh;
+  overflow-y: auto;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.linkify {
+  cursor: pointer !important;
+}
+
 .review-card {
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   mat-card {
     width: 40vw;
     height: 40vh;
@@ -14,7 +35,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     align-items: center;
     justify-content: center;
   }
-
   mat-card-footer {
     display: flex;
     flex-direction: row;

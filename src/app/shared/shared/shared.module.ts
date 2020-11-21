@@ -1,24 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from '../../app-routing.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { BrowserModule } from '@angular/platform-browser';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+
+const MODULES = [
+  CommonModule,
+  ReactiveFormsModule,
+  MatInputModule,
+  MatButtonModule,
+  MatCardModule,
+  MatToolbarModule,
+  MatListModule,
+  MatIconModule
+];
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule
+    ...MODULES
+  ],
+  exports: [
+    ...MODULES
   ]
 })
 export class SharedModule { }

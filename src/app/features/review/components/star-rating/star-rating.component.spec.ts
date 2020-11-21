@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WriteReviewFormComponent } from './write-review-form.component';
+import { StarRatingComponent } from './star-rating.component';
 
-describe('WriteReviewFormComponent', () => {
-  let component: WriteReviewFormComponent;
-  let fixture: ComponentFixture<WriteReviewFormComponent>;
+describe('StarRatingComponent', () => {
+  let component: StarRatingComponent;
+  let fixture: ComponentFixture<StarRatingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WriteReviewFormComponent ]
+      declarations: [ StarRatingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WriteReviewFormComponent);
+    fixture = TestBed.createComponent(StarRatingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
