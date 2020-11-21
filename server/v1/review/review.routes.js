@@ -7,3 +7,5 @@ router.get('/:id', reviewController.getReviewById);
 router.get('/', reviewController.getAllReviews);
 router.delete('/:id', reviewController.deleteReviewById);
 router.patch('/:id', reviewController.updateReviewById);
+
+module.exports = router;

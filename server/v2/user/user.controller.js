@@ -26,7 +26,7 @@ userLogin = async (req, res) => {
   });
 }
 
-createUser = async (req, res) => {
+userSignUp = async (req, res) => {
   // create a new user and store it in the database
   console.log(`creating new user ${req.body.username}`);
   const hash = await bcrypt.hash(req.body.password, 15)
