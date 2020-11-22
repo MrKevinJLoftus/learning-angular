@@ -38,7 +38,7 @@ export class StarRatingComponent implements OnInit {
   }
 
   /**
-   * Set rating when user clicks on a mat-icon-button
+   * Set rating when user clicks on a mat-icon-button, emit ratingChanged event.
    */
   setRating(index: number) {
     this.rating = index + 1;
