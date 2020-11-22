@@ -42,5 +42,6 @@ export class StarRatingComponent implements OnInit {
    */
   setRating(index: number) {
     this.rating = index + 1;
+    this.ratingChanged.emit(this.rating);
   }
 }

@@ -7,6 +7,11 @@ const app = express();
 // configure bodyParser library
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
+// log all incoming requests for debugging purposes
+app.use((req, res, next) => {
+  console.log(`Incoming ${req.method} request for ${req.url}`);
+  next();
+});
 // standard web server response headers configuration
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', "*");

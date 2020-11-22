@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
 import { Review } from 'src/app/shared/models/review.model';
 
 @Component({
@@ -22,7 +21,7 @@ export class WriteReviewComponent implements OnInit {
   initForm() {
     this.reviewForm = this.fb.group({
       title: ['', Validators.required],
-      rating: ['', [Validators.required, Validators.pattern(/\d+/)]],
+      rating: [null, [Validators.required]],
       comments: ['', Validators.required]
     });
   }
@@ -34,5 +33,7 @@ export class WriteReviewComponent implements OnInit {
   handleRatingChange(newRating: number) {
     this.reviewForm.controls.rating.setValue(newRating);
   }
+
+  createReview() { }
 
 }

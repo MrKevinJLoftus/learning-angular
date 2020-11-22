@@ -5,7 +5,7 @@ const reviewService = require('./review.service');
  */
 createNewReview = async (req, res) => {
   try {
-    await reviewService.createNewReview(req.body.review);
+    await reviewService.createNewReview(req.body);
     res.status(200).json({ success: true, message: 'Review created successfully.' });
   } catch (ex) {
     console.error(ex);
@@ -44,7 +44,7 @@ getAllReviews = async (req, res) => {
  */
 updateReviewById = async (req, res) => {
   try {
-    await reviewService.updateReviewById(req.params.id);
+    await reviewService.updateReviewById(req.params.id, req.body);
     res.status(200).json({ success: true, message: 'Review updated successfully.' });
   } catch (ex) {
     console.error(ex);
