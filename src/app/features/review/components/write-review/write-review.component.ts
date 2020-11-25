@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Review } from 'src/app/shared/models/review.model';
+import { ReviewService } from 'src/app/shared/services/review.service';
 
 @Component({
   selector: 'app-write-review',
@@ -12,7 +14,11 @@ export class WriteReviewComponent implements OnInit {
   pageTitle = 'Write a Review';
   reviewForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private reviewService: ReviewService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -40,6 +46,27 @@ export class WriteReviewComponent implements OnInit {
   /**
    * Submit the form and save the review to the database.
    */
-  createReview() { }
+  createReview() {
+    if (this.reviewForm.valid) {
+      // form is valid, call service to create review
+      const formVals = this.reviewForm.value;
+      const review: Review = {
+        title: formVals.title,
+        rating: formVals.rating,
+        comments: formVals.comments
+      };
+      this.reviewService.createReview(review).subscribe(
+        (res) => {
+          this.router.navigate(['/']);
+        },
+        (err) => {
+          console.error(err);
+        }
+      );
+    } else {
+      // form is invalid, mark all as touched
+      this.reviewForm.markAllAsTouched();
+    }
+  }
 
 }
