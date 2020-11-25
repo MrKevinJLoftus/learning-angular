@@ -18,6 +18,9 @@ export class WriteReviewComponent implements OnInit {
     this.initForm();
   }
 
+  /**
+   * Initialize form group.
+   */
   initForm() {
     this.reviewForm = this.fb.group({
       title: ['', Validators.required],
@@ -34,6 +37,9 @@ export class WriteReviewComponent implements OnInit {
     this.reviewForm.controls.rating.setValue(newRating);
   }
 
+  /**
+   * Submit the form and save the review to the database.
+   */
   createReview() { }
 
 }
