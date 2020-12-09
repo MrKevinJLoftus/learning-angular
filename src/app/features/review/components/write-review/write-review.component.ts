@@ -57,6 +57,7 @@ export class WriteReviewComponent implements OnInit {
       };
       this.reviewService.createReview(review).subscribe(
         (res) => {
+          // redirect the user back to the home page after successful save
           this.router.navigate(['/']);
         },
         (err) => {
