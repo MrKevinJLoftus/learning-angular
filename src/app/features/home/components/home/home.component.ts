@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { Review } from 'src/app/shared/models/review.model';
 import { ReviewService } from 'src/app/shared/services/review.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class HomeComponent implements OnInit {
 
   filterInput = new FormControl('');
   $subscription = new Subscription();
+  reviews: Review[] = [];
+  filteredReviews: Review[] = [];
 
   constructor(private reviewService: ReviewService) { }
 
@@ -26,7 +29,7 @@ export class HomeComponent implements OnInit {
   inputChangeHandler(): void {
     this.$subscription.add(this.filterInput.valueChanges.subscribe(
       (input) => {
-        console.log(input);
+        this.filteredReviews = this.reviews.filter((review) => review.title.toLowerCase().includes(input.toLowerCase()));
       }
     ));
   }
@@ -37,7 +40,7 @@ export class HomeComponent implements OnInit {
   getReviews(): void {
     this.$subscription.add(this.reviewService.getReviews().subscribe(
       (res) => {
-        console.log(res);
+        this.reviews = res;
       }
     ));
   }
