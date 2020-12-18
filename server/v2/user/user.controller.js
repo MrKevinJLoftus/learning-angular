@@ -1,4 +1,5 @@
 const userService = require('./user.service');
+const { jwt_key } = require('../../config');
 
 userLogin = async (req, res) => {
   console.log(`${req.body.username} logging in`);
