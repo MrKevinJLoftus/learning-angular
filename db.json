@@ -31,5 +31,11 @@
       "RVW_CMNTS": "I couldn't make it through more than 25 minutes of this movie without walking away. Pretty bad."
     }
   ],
-  "users": []
+  "users": [
+    {
+      "username": "testUser",
+      "id": "a_NCgOXfT6vCg_MKuhwo8",
+      "password": "$2b$15$X8rxyG7hGUg1YZQD.w4zKuvLIYNYWlAT4a6gq/yxEk5hChyQxtuOK"
+    }
+  ]
 }

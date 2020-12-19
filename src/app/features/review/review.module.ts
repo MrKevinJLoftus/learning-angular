@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { WriteReviewComponent } from './components/write-review/write-review.component';
-import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 

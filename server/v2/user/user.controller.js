@@ -1,13 +1,17 @@
 const userService = require('./user.service');
 const { jwt_key } = require('../../config');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const authError = new Error('Authentication failed.');
 
 userLogin = async (req, res) => {
   console.log(`${req.body.username} logging in`);
-  const { username, userId, password } = await userService.findUser(req.body.username);
+  const fetchedUser = await userService.findUser(req.body.username);
   if (!fetchedUser || fetchedUser.length < 1) {
     throw authError;
   }
   // found user
+  const { username, userId, password } = fetchedUser[0];
   const hashMatch = await bcrypt.compare(req.body.password, password);
   if (!hashMatch) {
     throw authError;

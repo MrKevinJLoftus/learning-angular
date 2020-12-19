@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginData } from 'src/app/shared/models/auth.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -30,7 +32,10 @@ export class LoginFormComponent implements OnInit {
    */
   submitLogin(): void {
     if (this.loginForm.valid) {
-      // call auth service login
+      const data: LoginData = { ...this.loginForm.value };
+      this.authService.login(data).subscribe((res) => {
+        console.log(res);
+      });
     } else {
       this.loginForm.markAllAsTouched();
     }
