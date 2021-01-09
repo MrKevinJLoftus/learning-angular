@@ -28,4 +28,11 @@ export class AppComponent implements OnDestroy {
   ngOnDestroy() {
     this.$subscription.unsubscribe();
   }
+
+  /**
+   * Call the AuthService to log the user out.
+   */
+  logout() {
+    this.authService.logout();
+  }
 }

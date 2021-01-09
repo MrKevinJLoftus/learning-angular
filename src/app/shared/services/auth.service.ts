@@ -94,6 +94,8 @@ export class AuthService {
     // set isAuthenticated to false and notify subscribers
     this.isAuthenticated = false;
     this.authStatusListener.next(false);
+    // clear auth timer
+    clearTimeout(this.tokenTimer);
   }
 
   /**

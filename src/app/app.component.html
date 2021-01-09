@@ -14,9 +14,16 @@
         mat-list-item
         *ngIf="!isAuthenticated"
         routerLink="/login"
-    >
-      <mat-icon>login</mat-icon><span class="routeText">Login</span>
-    </a>
+      >
+        <mat-icon>login</mat-icon><span class="routeText">Login</span>
+      </a>
+      <a
+      mat-list-item
+      *ngIf="isAuthenticated"
+      (click)="logout()"
+      >
+        <mat-icon>exit_to_app</mat-icon><span class="routeText">Logout</span>
+      </a>
     </mat-nav-list>
   </mat-toolbar>
   <div class="main-content">
