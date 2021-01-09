@@ -52,6 +52,13 @@ export class AuthService {
   }
 
   /**
+   * Returns true if user is authenticated, false otherwise.
+   */
+  getAuthStatus(): boolean {
+    return this.isAuthenticated;
+  }
+
+  /**
    * Returns an observable that emits changes to the user's authentication status.
    */
   authStatusChanges(): Observable<boolean> {
