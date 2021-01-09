@@ -12,6 +12,7 @@ export class AuthService {
   private isAuthenticated = false;
   private authStatusListener = new EventEmitter<boolean>();
   private tokenTimer: ReturnType<typeof setTimeout>;
+  private token: string;
   constructor(private http: HttpClient, private router: Router) { }
 
   /**
@@ -36,6 +37,8 @@ export class AuthService {
    * Handle a successful login or signup and authenticate the user.
    */
   private loginSetup(data: AuthData): void {
+    // store local copy of token
+    this.token = data.token;
     // set AuthData in localStorage
     localStorage.setItem('token', data.token);
     // set a Date object to 'now' + data.expiresIn seconds
@@ -113,5 +116,12 @@ export class AuthService {
     this.tokenTimer = setTimeout(() => {
       this.logout();
     }, duration * 1000);
+  }
+
+  /**
+   * Return the JWT stored in localStorage.
+   */
+  getToken(): string {
+    return this.token;
   }
 }
