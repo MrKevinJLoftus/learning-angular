@@ -10,6 +10,13 @@
       >
         <mat-icon>{{ route.icon }}</mat-icon><span class="routeText">{{ route.text }}</span>
       </a>
+      <a
+        mat-list-item
+        *ngIf="!isAuthenticated"
+        routerLink="/login"
+    >
+      <mat-icon>login</mat-icon><span class="routeText">Login</span>
+    </a>
     </mat-nav-list>
   </mat-toolbar>
   <div class="main-content">

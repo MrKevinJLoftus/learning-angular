@@ -33,9 +33,7 @@ export class LoginFormComponent implements OnInit {
   submitLogin(): void {
     if (this.loginForm.valid) {
       const data: LoginData = { ...this.loginForm.value };
-      this.authService.login(data).subscribe((res) => {
-        console.log(res);
-      });
+      this.authService.login(data);
     } else {
       this.loginForm.markAllAsTouched();
     }

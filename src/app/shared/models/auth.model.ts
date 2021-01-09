@@ -5,3 +5,8 @@ export class LoginData {
 export class SignupData extends LoginData {
   passwordTwo: string;
 }
+export class AuthData {
+  token: string;
+  expiresIn: number;
+  userId: string;
+}
