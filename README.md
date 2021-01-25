@@ -2,7 +2,21 @@
 
 This project is intended to be used as a teaching tool for students learning Angular for the first time. Students are expected to have a tech background and a basic understanding of web apps and TypeScript.
 
-Lecture slides and teaching materials are not provided in this repository, but code is heavily commented and branches of this repo are labeled in course order.
+Code is heavily commented and branches of this repo are labeled in course order.
+
+Lecture slides may be found here:
+
+Day 1
+https://docs.google.com/presentation/d/1U-B_ggR8s0VRzfYca3rlCDtVVZqsTJEY3MAVjoHItDs/edit?usp=sharing
+
+Day 2
+https://docs.google.com/presentation/d/17JGJ4yp88cGWzziDd2oU-XpfuDcxDiojQnxPwBY7nnE/edit?usp=sharing
+
+Day 3
+https://docs.google.com/presentation/d/1Pr1ARBp2qz9xI2xdiZAbwXavbMchJWRJmqU-e0XvMv8/edit?usp=sharing
+
+Day 4
+https://docs.google.com/presentation/d/1KL1wWPDrZlKZDIvtgd9nhNkSOVNP8z4pbWQ6RNKaS_w/edit?usp=sharing
 
 # Standard Angular README
 
